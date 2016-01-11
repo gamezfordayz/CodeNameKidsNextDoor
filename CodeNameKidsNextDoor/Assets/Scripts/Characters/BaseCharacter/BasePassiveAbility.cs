@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using interfaces.passive;
+using interfaces.ability;
 
 public abstract class BasePassiveAbility : IPassive
 {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseAbility : MonoBehaviour {
+public class Commoner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

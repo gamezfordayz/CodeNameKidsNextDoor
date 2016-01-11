@@ -8,12 +8,12 @@ namespace interfaces.general
     {
         void TakeDamage(int damage);
     }
-    public interface IBreakAble
+    public interface IBreakable
     {
         void Break();
     }
 }
-namespace interfaces.passive
+namespace interfaces.ability
 {
     public interface IPassive
     {

@@ -32,9 +32,19 @@ namespace utils.timer
     {
         public event Action TimerFinished;
 
+        float oldTimer = 0.0f;
+        Coroutine timer = null;
+
         public CoolDown(float time)
         {
-            CoolDownManager.Instance.StartCoroutine(CoolDownTimer(time));
+            StartTimer(time);
+        }
+
+        public void StartTimer(float time)
+        {
+            if(timer != null)
+                CoolDownManager.Instance.StopCoroutine(timer);
+            timer = CoolDownManager.Instance.StartCoroutine(CoolDownTimer(time));
         }
 
         IEnumerator CoolDownTimer(float time)
