@@ -35,6 +35,7 @@ namespace code.baseCharacter
                 if (_currentHealth <= 0) OnDeath(); 
             }
         }
+        public bool CanBeDamaged { get { if(!IsDying) return true;return false; } }// need impimentation for global cd on damaged? 
         public bool IsDying { get { return _currentHealth <= 0; } }
         public bool IsHealthMax { get { return _currentHealth == _maxHealth; } }
         #endregion
@@ -47,7 +48,7 @@ namespace code.baseCharacter
         }
         public virtual void TakeDamage(int damage)
         {
-            if (!IsDying)
+            if (CanBeDamaged)
             {
                 OnTakeDamage();
                 Health -= damage;

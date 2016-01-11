@@ -22,6 +22,7 @@ namespace interfaces.passive
     }
     public interface ITriggerable
     {
+        // check for trigger?
         void OnTrigger();
     }
     public interface IExecutable
