@@ -12,7 +12,7 @@ namespace code.baseCharacter
         #region Vars
         protected Stats characterStats = null;
         protected Stats.StatTypes _primaryStat;
-
+        protected Sprite characterSprite;
         int _maxHealth;
         int _currentHealth;
         #endregion
