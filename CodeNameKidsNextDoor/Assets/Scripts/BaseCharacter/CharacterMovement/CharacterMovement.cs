@@ -6,8 +6,8 @@ public class CharacterMovement : MonoBehaviour
     #region Vars
     const float skinWidth = 0.05f;
 
-    int horizontalRayCount = 4;
-    int verticalRayCount = 4;
+    int horizontalRayCount = 10;
+    int verticalRayCount = 10;
 
     float horizontalRaySpacing, verticalRaySpacing;
     float speed = 5.0f;
