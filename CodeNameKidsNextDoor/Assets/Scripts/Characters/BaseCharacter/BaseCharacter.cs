@@ -10,8 +10,8 @@ namespace code.baseCharacter
     public abstract class BaseCharacter : IDamagable
     {
         #region Vars
-        Stats characterStats = null;
-        Stats.StatTypes _primaryStat;
+        protected Stats characterStats = null;
+        protected Stats.StatTypes _primaryStat;
 
         int _maxHealth;
         int _currentHealth;
