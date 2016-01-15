@@ -7,14 +7,14 @@ using interfaces.general;
 
 namespace code.baseCharacter
 {
-    public abstract class BaseCharacter : IDamagable
+    public class BaseCharacter : IDamagable
     {
         #region Vars
         protected Stats characterStats = null;
         protected Stats.StatTypes _primaryStat;
         protected Sprite characterSprite;
-        int _maxHealth;
-        int _currentHealth;
+        protected int _maxHealth;
+        protected int _currentHealth;
         #endregion
 
         #region Events
