@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class CharacterMovement : MonoBehaviour
+public class RaycastMovement : MonoBehaviour
 {
     #region Vars
     const float skinWidth = 0.05f;
@@ -10,11 +11,13 @@ public class CharacterMovement : MonoBehaviour
     int verticalRayCount = 10;
 
     float horizontalRaySpacing, verticalRaySpacing;
-    float speed = 5.0f;
+    public float speed;
 
-    Vector2 playerVelocity;
-
+    public List<Vector2> movementVectors;
     public LayerMask collisionMask;
+
+    Vector2 unitVelocity;
+
     BoxCollider2D playerCollider;
     RaycastOrigins raycastOrigins;
     #endregion
@@ -37,7 +40,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     #region Methods
-    //Calculates the spacing of the Rays to dynamically space the ray casts proportionally
+    //Calculates the spacing of the Rays to dynamically space the ray casts evenly
     void CalculateRaySpacing()
     {
         Bounds bounds = playerCollider.bounds;
@@ -65,38 +68,22 @@ public class CharacterMovement : MonoBehaviour
     //Move player with transform.translate based on raycast collision and 'WASD' movement
     void MovePlayer()
     {
-        playerVelocity = Vector2.zero;
+        unitVelocity = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            playerVelocity += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            playerVelocity += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            playerVelocity += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            playerVelocity += Vector2.right;
-        }
+        movementVectors.ForEach(vector => unitVelocity += vector);
 
         VerticalCollisions();
         HorizontalCollisions();
         
-
-        transform.Translate(playerVelocity * Time.deltaTime * speed);
+        transform.Translate(unitVelocity * Time.deltaTime * speed);
     }
 
     //Calculates vertical collisions by shooting out rays and calculating distance
     void VerticalCollisions()
     {
         //find direction player is moving
-        float directionY = Mathf.Sign(playerVelocity.y);
-        float rayLegnth = Mathf.Abs(playerVelocity.y) + skinWidth;
+        float directionY = Mathf.Sign(unitVelocity.y);
+        float rayLegnth = Mathf.Abs(unitVelocity.y) + skinWidth;
 
         //go through all rays
         for (int i = 0; i < verticalRayCount; i++)
@@ -109,7 +96,7 @@ public class CharacterMovement : MonoBehaviour
 
             //if it gets too close to a collidable object, stop moving
             if (hit && hit.distance <= skinWidth * 2)
-                playerVelocity.y = 0;
+                unitVelocity.y = 0;
         }
     }
 
@@ -117,8 +104,8 @@ public class CharacterMovement : MonoBehaviour
     void HorizontalCollisions()
     {
         //find direction player is moving
-        float directionX = Mathf.Sign(playerVelocity.x);
-        float rayLegnth = Mathf.Abs(playerVelocity.x) + skinWidth;
+        float directionX = Mathf.Sign(unitVelocity.x);
+        float rayLegnth = Mathf.Abs(unitVelocity.x) + skinWidth;
 
         //go through all rays
         for (int i = 0; i < horizontalRayCount; i++)
@@ -131,7 +118,7 @@ public class CharacterMovement : MonoBehaviour
 
             //if it gets too close to a collidable object, stop moving
             if (hit && hit.distance <= skinWidth * 2)
-                playerVelocity.x = 0;
+                unitVelocity.x = 0;
         }
     }
     #endregion
