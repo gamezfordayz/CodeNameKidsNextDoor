@@ -18,9 +18,9 @@ namespace code.baseCharacter
         #endregion
 
         #region Events
-        public static event Action OnHealthUp;
-        public static event Action OnTakeDamage;
-        public static event Action OnDeath;
+        public event Action OnHealthUp;
+        public event Action OnTakeDamage;
+        public event Action OnDeath;
         #endregion
 
         #region Properties
