@@ -9,7 +9,7 @@ public class Rat : BaseEnemy
 {
     #region vars
  
-    public float weightMod = .25f;
+  
 
     
 
