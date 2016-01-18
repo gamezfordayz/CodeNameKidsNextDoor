@@ -8,10 +8,10 @@ public class CharacterAbilitySlots : MonoBehaviour
     public float globalCD;
     public BaseAbility passiveAbility = null;
 
-    BaseAbility[] _abilitySlots = new BaseAbility[4] {null,null,null,null};
+    BaseAbility[] _abilitySlots = new BaseAbility[4] {null ,null,null,null};
     Timer _globalCDTimer = null;
 
-    public BaseAbility this[int index]
+    BaseAbility this[int index]
     {
         get { return index == -1 ? passiveAbility : _abilitySlots[index]; }
         set { if (index == -1) passiveAbility = value; else { _abilitySlots[index] = value; }; }
