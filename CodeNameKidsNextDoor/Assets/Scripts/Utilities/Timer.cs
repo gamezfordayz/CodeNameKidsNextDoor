@@ -6,8 +6,11 @@ namespace utils.timer
 {
     public class CoolDownManager : MonoBehaviour
     {
+        #region Vars
         static CoolDownManager _instance = null;
+        #endregion
 
+        #region Properties
         public static CoolDownManager Instance
         {
             get
@@ -20,24 +23,31 @@ namespace utils.timer
                 return _instance;
             }
         }
+        #endregion
 
+        #region Methods
         static CoolDownManager()
         {
             _instance = new CoolDownManager();
         }
-
+        #endregion
     }
 
     public class Timer
     {
+        #region Events
         public event Action<float> TimerStarted;
         public event Action TimerFinished;
+        #endregion
 
+        #region Vars
         public bool timerRunning = false;
         public float timeRemaining = 0.0f;
 
-        Coroutine timer = null;
+        Coroutine _timer = null;
+        #endregion
 
+        #region Methods
         public Timer(float time, bool start = true)
         {
             if(start)
@@ -48,9 +58,9 @@ namespace utils.timer
         {
             timerRunning = true;
             timeRemaining = time;
-            if(timer != null)
-                CoolDownManager.Instance.StopCoroutine(timer);
-            timer = CoolDownManager.Instance.StartCoroutine(CoolDownTimer(time));
+            if(_timer != null)
+                CoolDownManager.Instance.StopCoroutine(_timer);
+            _timer = CoolDownManager.Instance.StartCoroutine(CoolDownTimer(time));
         }
 
         IEnumerator CoolDownTimer(float time)
@@ -66,5 +76,7 @@ namespace utils.timer
             if(TimerFinished != null)
                 TimerFinished();
         }
+        #endregion
+
     }
 }

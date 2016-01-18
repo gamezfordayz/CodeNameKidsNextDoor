@@ -26,12 +26,16 @@ namespace code.ability
         {
             get
             {
-                if (_cooldown == null)
-                {
-                    _cooldown = new Timer(_coolDownTime, false);
-                }
                 return _cooldown.timerRunning;
             }
+        }
+        public float TimeRemainingOnCooldown
+        {
+            get { return _cooldown.timeRemaining; }
+        }
+        public bool CanBeAssigned
+        {
+            get { return OnCoolDown; }
         }
         #endregion
 

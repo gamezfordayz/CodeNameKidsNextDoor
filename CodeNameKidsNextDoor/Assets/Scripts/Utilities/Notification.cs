@@ -6,8 +6,11 @@ namespace utils.notification
 {
     public static class Notification
     {
+        #region Vars
         static Dictionary<NotificationType, string> _notifications = new Dictionary<NotificationType, string>();
+        #endregion
 
+        #region Methods
         static Notification()
         {
             _notifications.Add(NotificationType.OUT_OF_RESOURCE, "Out of Mana.");
@@ -29,6 +32,7 @@ namespace utils.notification
                     break;
             }
         }
+        #endregion
     }
 
     public enum NotificationType
