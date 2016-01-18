@@ -58,7 +58,8 @@ namespace code.baseCharacter
         {
             if (!IsHealthMax)
             {
-                OnHealthUp();
+                if(OnHealthUp != null)
+                    OnHealthUp();
                 Health += amount;
             }
         }

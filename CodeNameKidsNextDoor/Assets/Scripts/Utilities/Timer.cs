@@ -28,20 +28,26 @@ namespace utils.timer
 
     }
 
-    public class CoolDown
+    public class Timer
     {
+        public event Action<float> TimerStarted;
         public event Action TimerFinished;
 
-        float oldTimer = 0.0f;
+        public bool timerRunning = false;
+        public float timeRemaining = 0.0f;
+
         Coroutine timer = null;
 
-        public CoolDown(float time)
+        public Timer(float time, bool start = true)
         {
-            StartTimer(time);
+            if(start)
+                StartTimer(time);
         }
 
         public void StartTimer(float time)
         {
+            timerRunning = true;
+            timeRemaining = time;
             if(timer != null)
                 CoolDownManager.Instance.StopCoroutine(timer);
             timer = CoolDownManager.Instance.StartCoroutine(CoolDownTimer(time));
@@ -49,7 +55,14 @@ namespace utils.timer
 
         IEnumerator CoolDownTimer(float time)
         {
-            yield return new WaitForSeconds(time);
+            if (TimerStarted != null)
+                TimerStarted(time);
+            while (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                yield return null;
+            }
+            timerRunning = false;
             if(TimerFinished != null)
                 TimerFinished();
         }

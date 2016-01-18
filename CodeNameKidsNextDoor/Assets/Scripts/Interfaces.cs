@@ -27,7 +27,17 @@ namespace interfaces.ability
     }
     public interface IExecutable
     {
+        bool Execute();
         void OnExecute();
+        bool CheckIfCanExecute();
+    }
+}
+
+namespace interfaces.cooldown
+{ 
+    public interface ICooldown
+    {
+        void StartCoolDown(float time);
     }
    
 }
