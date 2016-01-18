@@ -20,6 +20,7 @@ public class PlayerMovementInput : MonoBehaviour
 	
 	void Update ()
     {
+        playerMovement.Clear();
         //Inputs add vector directions to list
         if (Input.GetKey(KeyCode.W))
             playerMovement.Add(Vector2.up);
@@ -32,11 +33,5 @@ public class PlayerMovementInput : MonoBehaviour
 
         //pass list to the raycastMovement
         unitMovement.movementVectors = playerMovement;
-    }
-
-    void LateUpdate()
-    {
-        //clear the list
-        playerMovement.Clear();
     }
 }
