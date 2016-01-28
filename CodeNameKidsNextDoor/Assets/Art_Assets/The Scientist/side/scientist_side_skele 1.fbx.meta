@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 2db6ed9fc41485745ab5cae4f698f72e
+timeCreated: 1453876877
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone
+    100002: Bone 1
+    100004: Bone 2
+    100006: Bone 3
+    100008: Bone 4
+    100010: Bone 5
+    100012: Bone 6
+    100014: Bone.001
+    100016: Bone.001 1
+    100018: Bone.001 2
+    100020: Bone.001 3
+    100022: Bone.001 4
+    100024: Bone.001 5
+    100026: Bone.001 6
+    100028: Bone.001_end
+    100030: Bone.001_end 1
+    100032: Bone.001_end 2
+    100034: Bone.001_end 3
+    100036: Bone.001_end 4
+    100038: Bone.001_end 5
+    100040: Bone.001_end 6
+    100042: Bone.002
+    100044: Bone.002_end
+    100046: head
+    100048: left_arm_idle
+    100050: left_arm_idle.001
+    100052: left_arm_run
+    100054: left_arm_run.001
+    100056: left_arm_run.002
+    100058: leg_left
+    100060: leg_left.001
+    100062: leg_right.001
+    100064: leg_right.002
+    100066: right_arm_idle
+    100068: right_arm_idle.001
+    100070: right_arm_run
+    100072: right_arm_run.001
+    100074: right_arm_run.002
+    100076: //RootNode
+    100078: torso
+    400000: Bone
+    400002: Bone 1
+    400004: Bone 2
+    400006: Bone 3
+    400008: Bone 4
+    400010: Bone 5
+    400012: Bone 6
+    400014: Bone.001
+    400016: Bone.001 1
+    400018: Bone.001 2
+    400020: Bone.001 3
+    400022: Bone.001 4
+    400024: Bone.001 5
+    400026: Bone.001 6
+    400028: Bone.001_end
+    400030: Bone.001_end 1
+    400032: Bone.001_end 2
+    400034: Bone.001_end 3
+    400036: Bone.001_end 4
+    400038: Bone.001_end 5
+    400040: Bone.001_end 6
+    400042: Bone.002
+    400044: Bone.002_end
+    400046: head
+    400048: left_arm_idle
+    400050: left_arm_idle.001
+    400052: left_arm_run
+    400054: left_arm_run.001
+    400056: left_arm_run.002
+    400058: leg_left
+    400060: leg_left.001
+    400062: leg_right.001
+    400064: leg_right.002
+    400066: right_arm_idle
+    400068: right_arm_idle.001
+    400070: right_arm_run
+    400072: right_arm_run.001
+    400074: right_arm_run.002
+    400076: //RootNode
+    400078: torso
+    4300000: leg_left.001
+    4300002: leg_right.002
+    4300004: torso
+    4300006: right_arm_idle
+    4300008: right_arm_run.002
+    4300010: right_arm_run
+    4300012: left_arm_idle
+    4300014: left_arm_run.002
+    4300016: left_arm_run
+    9500000: //RootNode
+    13700000: left_arm_idle
+    13700002: left_arm_run
+    13700004: left_arm_run.002
+    13700006: leg_left.001
+    13700008: leg_right.002
+    13700010: right_arm_idle
+    13700012: right_arm_run
+    13700014: right_arm_run.002
+    13700016: torso
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
