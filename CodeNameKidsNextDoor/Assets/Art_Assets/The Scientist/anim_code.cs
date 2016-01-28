@@ -15,7 +15,7 @@ public class anim_code : MonoBehaviour
 	void Start ()
 	{
 		anim = GetComponent<Animator>();
-		scaleX = gameObject.transform.LocalScale.x;
+		scaleX = gameObject.transform.localScale.x;
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class anim_code : MonoBehaviour
 		if (Input.GetKey(KeyCode.D))
 		{
 			anim.SetFloat("speed",1);
-			gameObject.transform.LocalScale = new Vector3(scaleX,gameObject.transform.LocalScale.y, gameObject.transform.LocalScale.z );
+			gameObject.transform.localScale = new Vector3(scaleX,gameObject.transform.localScale.y, gameObject.transform.localScale.z );
 		}
 		else if(Input.GetKeyUp(KeyCode.D))
 			anim.SetFloat("speed",0);
@@ -37,7 +37,7 @@ public class anim_code : MonoBehaviour
 		else if(Input.GetKeyUp(KeyCode.A))
 		{
 			anim.SetFloat("speed",0);
-			gameObject.transform.LocalScale = new Vector3(-scaleX,gameObject.transform.LocalScale.y, gameObject.transform.LocalScale.z);
+			gameObject.transform.localScale = new Vector3(-scaleX,gameObject.transform.localScale.y, gameObject.transform.localScale.z);
 		}
 		if (Input.GetKey(KeyCode.W))
 			anim.SetFloat("speed",1);
