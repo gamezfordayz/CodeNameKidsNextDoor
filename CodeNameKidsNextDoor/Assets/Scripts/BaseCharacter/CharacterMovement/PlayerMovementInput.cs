@@ -1,19 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using interfaces.command;
+using System;
 
-public class PlayerMovementInput : MonoBehaviour
+public class PlayerMovementInput : MonoBehaviour, IMoveUp, IMoveDown, IMoveLeft, IMoveRight
 {
     #region Vars
-    float playerSpeed = 5.0f;
-
     public List<Vector2> playerMovement = new List<Vector2>();
+    Dictionary<KeyCode, Command> keyToCommand = new Dictionary<KeyCode, Command>();
+
+    Command moveUpCommand;
+    Command moveDownCommand;
+    Command moveLeftCommand;
+    Command moveRightCommand;
+
+    float playerSpeed = 5.0f;
     
     RaycastMovement unitMovement;
     #endregion
 
     void Start ()
     {
+        moveUpCommand = new MoveUpCommand();
+        moveDownCommand = new MoveDownCommand();
+        moveLeftCommand = new MoveLeftCommand();
+        moveRightCommand = new MoveRightCommand();
+
+        keyToCommand.Add(KeyCode.W, moveUpCommand);
+        keyToCommand.Add(KeyCode.S, moveDownCommand);
+        keyToCommand.Add(KeyCode.A, moveLeftCommand);
+        keyToCommand.Add(KeyCode.D, moveRightCommand);
+
         unitMovement = this.gameObject.GetComponent<RaycastMovement>();
         unitMovement.speed = playerSpeed;
 	}
@@ -21,17 +39,33 @@ public class PlayerMovementInput : MonoBehaviour
 	void Update ()
     {
         playerMovement.Clear();
-        //Inputs add vector directions to list
-        if (Input.GetKey(KeyCode.W))
-            playerMovement.Add(Vector2.up);
-        if (Input.GetKey(KeyCode.S))
-            playerMovement.Add(Vector2.down);
-        if (Input.GetKey(KeyCode.A))
-            playerMovement.Add(Vector2.left);
-        if (Input.GetKey(KeyCode.D))
-            playerMovement.Add(Vector2.right);
 
-        //pass list to the raycastMovement
+        foreach (KeyValuePair<KeyCode, Command> entry in keyToCommand)
+        {
+            if (Input.GetKey(entry.Key))
+                entry.Value.Execute(this);
+        }
+
         unitMovement.movementVectors = playerMovement;
+    }
+
+    public void MoveUp()
+    {
+        playerMovement.Add(Vector2.up);
+    }
+
+    public void MoveDown()
+    {
+        playerMovement.Add(Vector2.down);
+    }
+
+    public void MoveLeft()
+    {
+        playerMovement.Add(Vector2.left);
+    }
+
+    public void MoveRight()
+    {
+        playerMovement.Add(Vector2.right);
     }
 }

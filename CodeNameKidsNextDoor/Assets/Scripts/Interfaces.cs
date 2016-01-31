@@ -41,3 +41,26 @@ namespace interfaces.cooldown
     }
    
 }
+
+namespace interfaces.command
+{
+    public interface IMoveUp
+    {
+        void MoveUp();
+    }
+
+    public interface IMoveDown
+    {
+        void MoveDown();
+    }
+
+    public interface IMoveLeft
+    {
+        void MoveLeft();
+    }
+
+    public interface IMoveRight
+    {
+        void MoveRight();
+    }
+}
