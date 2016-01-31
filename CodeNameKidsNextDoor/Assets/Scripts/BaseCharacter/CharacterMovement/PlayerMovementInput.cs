@@ -10,6 +10,11 @@ public class PlayerMovementInput : MonoBehaviour, IMoveUp, IMoveDown, IMoveLeft,
     public List<Vector2> playerMovement = new List<Vector2>();
     Dictionary<KeyCode, Command> keyToCommand = new Dictionary<KeyCode, Command>();
 
+    KeyCode moveUpButton = KeyCode.W;
+    KeyCode moveDownButton = KeyCode.S;
+    KeyCode moveLeftButton = KeyCode.A;
+    KeyCode moveRightButton = KeyCode.D;
+
     Command moveUpCommand;
     Command moveDownCommand;
     Command moveLeftCommand;
@@ -20,6 +25,7 @@ public class PlayerMovementInput : MonoBehaviour, IMoveUp, IMoveDown, IMoveLeft,
     RaycastMovement unitMovement;
     #endregion
 
+    #region Methods
     void Start ()
     {
         moveUpCommand = new MoveUpCommand();
@@ -27,10 +33,10 @@ public class PlayerMovementInput : MonoBehaviour, IMoveUp, IMoveDown, IMoveLeft,
         moveLeftCommand = new MoveLeftCommand();
         moveRightCommand = new MoveRightCommand();
 
-        keyToCommand.Add(KeyCode.W, moveUpCommand);
-        keyToCommand.Add(KeyCode.S, moveDownCommand);
-        keyToCommand.Add(KeyCode.A, moveLeftCommand);
-        keyToCommand.Add(KeyCode.D, moveRightCommand);
+        keyToCommand.Add(moveUpButton, moveUpCommand);
+        keyToCommand.Add(moveDownButton, moveDownCommand);
+        keyToCommand.Add(moveLeftButton, moveLeftCommand);
+        keyToCommand.Add(moveRightButton, moveRightCommand);
 
         unitMovement = this.gameObject.GetComponent<RaycastMovement>();
         unitMovement.speed = playerSpeed;
@@ -49,6 +55,7 @@ public class PlayerMovementInput : MonoBehaviour, IMoveUp, IMoveDown, IMoveLeft,
         unitMovement.movementVectors = playerMovement;
     }
 
+ 
     public void MoveUp()
     {
         playerMovement.Add(Vector2.up);
@@ -68,4 +75,5 @@ public class PlayerMovementInput : MonoBehaviour, IMoveUp, IMoveDown, IMoveLeft,
     {
         playerMovement.Add(Vector2.right);
     }
+    #endregion
 }
