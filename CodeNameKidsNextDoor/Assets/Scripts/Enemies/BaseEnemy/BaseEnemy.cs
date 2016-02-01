@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using code.stats;
 using interfaces.general;
@@ -15,6 +16,7 @@ public class BaseEnemy : MonoBehaviour
     protected float attackSpeed;
     protected float weightModifier; //weight between 0-1
     protected int level;
+    protected int damage;
     protected float attackRange = 1;
     protected Stats.StatTypes primary;
     protected BaseCharacter enemyClass;
@@ -24,6 +26,7 @@ public class BaseEnemy : MonoBehaviour
     protected Vector2 moveDirection;
 
     bool agro;
+    bool attackAvailable;
     #endregion
 
     #region Method 
@@ -32,6 +35,9 @@ public class BaseEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         unitMovement = this.gameObject.GetComponent<RaycastMovement>();
         unitMovement.speed = moveSpeed;
+        damage = str * 25; // how do i grab value from primary stat?
+        attackSpeed = 2 - agl / 10;
+        attackAvailable = true;
         InvokeRepeating("DirectionChange", 0, 2);
     }
     public virtual void Update()
@@ -39,18 +45,21 @@ public class BaseEnemy : MonoBehaviour
         enemyMovement.Clear();
         agro = PlayerDetected();
 
-         if (InRange(player.transform.position))
-             Attack();
-         else
-         {
-             if (agro)
-             {
+        if (InRange(player.transform.position))
+        {
+            if(attackAvailable)
+            StartCoroutine(Attack(attackSpeed));
+        }
+        else
+        {
+            if (agro)
+            {
                 Vector2 playerPos = RelativePositionToPlayer();
                 moveDirection = playerPos;
-             }
-             enemyMovement.Add(moveDirection);
-             unitMovement.movementVectors = enemyMovement;
-         }
+            }
+            enemyMovement.Add(moveDirection);
+            unitMovement.movementVectors = enemyMovement;
+        }
     }
     protected BaseCharacter EnemyCreation(Stats.StatTypes primaryStat = Stats.StatTypes.STRENGTH, int hp = 1, int def = 1, int str = 1, int agl = 1, int intellect = 1, int wis = 1, int level = 5)
     {
@@ -115,9 +124,13 @@ public class BaseEnemy : MonoBehaviour
         else
         return false;
     }
-    protected void Attack()
+    protected IEnumerator Attack(float attackSpeed)
     {
-
+        attackAvailable = false;
+       // player.GetComponent<BaseCharacter>().TakeDamage(damage);
+        Debug.Log("hit for " + damage);
+        yield return new WaitForSeconds(attackSpeed);
+        attackAvailable = true;
     }
     #endregion 
 }
