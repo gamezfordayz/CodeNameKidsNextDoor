@@ -8,15 +8,16 @@ using utils.notification;
 
 namespace code.ability
 {
-    public class BaseAbility :IExecutable , ICooldown
+    public class BaseAbility : MonoBehaviour, IExecutable , ICooldown
     {
         #region Vars
-        public string name = "";
+        public string abilityName = "";
         public string description = "";
         public Sprite image;
         public bool passive = false;
         public AbilityTypes type;
 
+        [SerializeField]
         float _coolDownTime = 0f;
         Timer _cooldown = null;
         #endregion
@@ -40,27 +41,33 @@ namespace code.ability
         #endregion
 
         #region Methods
-        public BaseAbility(float cooldown, string name, string description, Sprite image, AbilityTypes type, bool passive = false)
+        void Start()
         {
-            this._coolDownTime = cooldown; this.name = name; this.description = description; this.image = image; this.type = type; this.passive = passive;
-            this._cooldown = new Timer(cooldown, false);
+            this._cooldown = new Timer(_coolDownTime, false);
         }
+
+        //public BaseAbility(float cooldown, string name, string description, Sprite image, AbilityTypes type, bool passive = false)
+        //{
+        //    this._coolDownTime = cooldown; this.abilityName = name; this.description = description; this.image = image; this.type = type; this.passive = passive;
+        //    this._cooldown = new Timer(cooldown, false);
+        //}
 
         public virtual bool Execute()
         {
             if (!CheckIfCanExecute())
                 return false;
             StartCoolDown(_coolDownTime);
+            OnExecute();
             return true;
         }
 
-        public virtual void OnExecute() { Debug.Log("Ability " + name + " was executed"); }
+        public virtual void OnExecute() { Debug.Log("Ability " + abilityName + " was executed"); }
 
         public virtual bool CheckIfCanExecute()
         {
             if (OnCoolDown)
             {
-                Notification.NotifyPlayer(NotificationType.OUT_OF_RESOURCE, name);
+                Notification.NotifyPlayer(NotificationType.ON_COOLDOWN, abilityName);
                 return false;
             }
             /*if(OutOfResource)

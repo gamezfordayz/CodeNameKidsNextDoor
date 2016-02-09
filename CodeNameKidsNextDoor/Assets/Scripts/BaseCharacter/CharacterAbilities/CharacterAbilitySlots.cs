@@ -6,10 +6,10 @@ using utils.timer;
 public class CharacterAbilitySlots : MonoBehaviour
 {
     #region Vars
-    public float globalCD;
+    public float globalCD = 0f;
     public BaseAbility passiveAbility = null;
 
-    BaseAbility[] _abilitySlots = new BaseAbility[4] {null ,null,null,null};
+    BaseAbility[] _abilitySlots = new BaseAbility[4] {null,null,null,null};
     Timer _globalCDTimer = null;
     #endregion
 
@@ -22,6 +22,25 @@ public class CharacterAbilitySlots : MonoBehaviour
     #endregion
 
     #region Methods
+    void Start()
+    {
+        _globalCDTimer = new Timer(globalCD, false);
+
+        BaseAbility[] temp = gameObject.GetComponents<BaseAbility>();
+        for (int i=0; i<temp.Length; i++)
+        {
+            AssignAbility(temp[i], i);
+        }
+    }
+       
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ExecuteAbility(0);
+        }
+    }
+
     public void ExecuteAbility(int index)
     {
         if (this[index] != null && !_globalCDTimer.timerRunning)

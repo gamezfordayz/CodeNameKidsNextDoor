@@ -17,18 +17,16 @@ namespace utils.timer
             {
                 if (_instance == null)
                 {
-                    Debug.LogError("No instance in CoolDownManager");
-                    return null;
+                    GameObject temp = GameObject.Find("TimeManager");
+
+                    if (temp == null)
+                    {
+                        temp = new GameObject("CoolDownManager", typeof(CoolDownManager));
+                    }
+                    _instance = temp.GetComponent<CoolDownManager>();
                 }
                 return _instance;
             }
-        }
-        #endregion
-
-        #region Methods
-        static CoolDownManager()
-        {
-            _instance = new CoolDownManager();
         }
         #endregion
     }
