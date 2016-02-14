@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 97d9227d89203704889b1c227a2304ce
-timeCreated: 1453863065
+guid: a549890b0eaa3374ca218bdad2f9e45a
+timeCreated: 1455459410
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -17,23 +17,27 @@ ModelImporter:
     100018: left_hand
     100020: left_hand_end
     100022: left_leg
-    100024: lower_left_leg
-    100026: lower_left_leg_end
-    100028: lower_right_leg
-    100030: lower_right_leg_end
-    100032: Plane
-    100034: Plane.001
-    100036: Plane.002
-    100038: right_arm
-    100040: right_coat_tail
-    100042: right_coat_tail_end
-    100044: right_hand
-    100046: right_hand_end
-    100048: right_leg
-    100050: //RootNode
-    100052: torso
-    100054: upper_left_leg
-    100056: upper_right_leg
+    100024: left_shoulder
+    100026: left_shoulder_end
+    100028: lower_left_leg
+    100030: lower_left_leg_end
+    100032: lower_right_leg
+    100034: lower_right_leg_end
+    100036: Plane
+    100038: Plane.001
+    100040: Plane.002
+    100042: right_arm
+    100044: right_coat_tail
+    100046: right_coat_tail_end
+    100048: right_hand
+    100050: right_hand_end
+    100052: right_leg
+    100054: right_shoulder
+    100056: right_shoulder_end
+    100058: //RootNode
+    100060: torso
+    100062: upper_left_leg
+    100064: upper_right_leg
     400000: body
     400002: Bone.001
     400004: Bone.003
@@ -46,23 +50,27 @@ ModelImporter:
     400018: left_hand
     400020: left_hand_end
     400022: left_leg
-    400024: lower_left_leg
-    400026: lower_left_leg_end
-    400028: lower_right_leg
-    400030: lower_right_leg_end
-    400032: Plane
-    400034: Plane.001
-    400036: Plane.002
-    400038: right_arm
-    400040: right_coat_tail
-    400042: right_coat_tail_end
-    400044: right_hand
-    400046: right_hand_end
-    400048: right_leg
-    400050: //RootNode
-    400052: torso
-    400054: upper_left_leg
-    400056: upper_right_leg
+    400024: left_shoulder
+    400026: left_shoulder_end
+    400028: lower_left_leg
+    400030: lower_left_leg_end
+    400032: lower_right_leg
+    400034: lower_right_leg_end
+    400036: Plane
+    400038: Plane.001
+    400040: Plane.002
+    400042: right_arm
+    400044: right_coat_tail
+    400046: right_coat_tail_end
+    400048: right_hand
+    400050: right_hand_end
+    400052: right_leg
+    400054: right_shoulder
+    400056: right_shoulder_end
+    400058: //RootNode
+    400060: torso
+    400062: upper_left_leg
+    400064: upper_right_leg
     2300000: head
     3300000: head
     4300000: Plane.002

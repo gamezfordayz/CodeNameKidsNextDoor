@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8adc0c8fd1435424a91a6be4e5e063ce
-timeCreated: 1453163131
+guid: 11073a10e105c4944aba1679504422b3
+timeCreated: 1455370481
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,60 +9,68 @@ ModelImporter:
     100002: body
     100004: Bone
     100006: Bone 1
-    100008: Bone 2
-    100010: Bone.001
-    100012: Bone.001 1
-    100014: Bone.001 2
-    100016: Bone.001_end
-    100018: Bone.001_end 1
-    100020: Bone.002
-    100022: Bone.003
-    100024: Bone.004
-    100026: Bone.005
-    100028: Bone.005_end
-    100030: Bone.006
-    100032: Bone.006_end
-    100034: Bone.007
-    100036: Bone.008
-    100038: Bone.008_end
-    100040: Bone.009
-    100042: Bone.010
-    100044: Bone.010_end
-    100046: head
-    100048: left_leg
-    100050: left_leg_bone
-    100052: right_leg
-    100054: right_leg_bone
-    100056: //RootNode
+    100008: Bone.001
+    100010: Bone.001 1
+    100012: Bone.001 2
+    100014: Bone.001_end
+    100016: Bone.001_end 1
+    100018: Bone.003
+    100020: Bone.007
+    100022: Bone.009
+    100024: head
+    100026: left_arm
+    100028: left_coat_tail
+    100030: left_coat_tail_end
+    100032: left_hand
+    100034: left_hand_end
+    100036: left_leg
+    100038: left_leg_bone
+    100040: left_shoulder
+    100042: left_shoulder_end
+    100044: right_arm
+    100046: right_coat_tail
+    100048: right_coat_tail_end
+    100050: right_hand
+    100052: right_hand_end
+    100054: right_leg
+    100056: right_leg_bone
+    100058: right_shoulder
+    100060: right_shoulder_end
+    100062: //RootNode
+    100064: torso
     400000: Armature
     400002: body
     400004: Bone
     400006: Bone 1
-    400008: Bone 2
-    400010: Bone.001
-    400012: Bone.001 1
-    400014: Bone.001 2
-    400016: Bone.001_end
-    400018: Bone.001_end 1
-    400020: Bone.002
-    400022: Bone.003
-    400024: Bone.004
-    400026: Bone.005
-    400028: Bone.005_end
-    400030: Bone.006
-    400032: Bone.006_end
-    400034: Bone.007
-    400036: Bone.008
-    400038: Bone.008_end
-    400040: Bone.009
-    400042: Bone.010
-    400044: Bone.010_end
-    400046: head
-    400048: left_leg
-    400050: left_leg_bone
-    400052: right_leg
-    400054: right_leg_bone
-    400056: //RootNode
+    400008: Bone.001
+    400010: Bone.001 1
+    400012: Bone.001 2
+    400014: Bone.001_end
+    400016: Bone.001_end 1
+    400018: Bone.003
+    400020: Bone.007
+    400022: Bone.009
+    400024: head
+    400026: left_arm
+    400028: left_coat_tail
+    400030: left_coat_tail_end
+    400032: left_hand
+    400034: left_hand_end
+    400036: left_leg
+    400038: left_leg_bone
+    400040: left_shoulder
+    400042: left_shoulder_end
+    400044: right_arm
+    400046: right_coat_tail
+    400048: right_coat_tail_end
+    400050: right_hand
+    400052: right_hand_end
+    400054: right_leg
+    400056: right_leg_bone
+    400058: right_shoulder
+    400060: right_shoulder_end
+    400062: //RootNode
+    400064: torso
     2300000: head
     3300000: head
     4300000: body
